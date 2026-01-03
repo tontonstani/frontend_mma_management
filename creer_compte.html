@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Accueil</title>
+    <title>Créer un compte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
@@ -28,12 +28,33 @@
             </ul>
             <div class="btn-group d-flex">
                 <a href="connexion.html">Se connecter</a>
-                <a href="creer_compte.html">Créer un compte</a>
             </div>
         </div>
     </div>
 </nav>
-<h1>Titre</h1>
+<h1>Créer un compte</h1>
+<form method="POST">
+    <div class="mb-3">
+        <label for="prenom">Prénom: <sup style="color:red;">*</sup></label>
+        <input type="text" class="form-control" id="prenom" name="prenom" required>
+    </div>
 
+    <div class="mb-3">
+        <label for="nom">Nom de famille: <sup style="color:red;">*</sup></label>
+        <input type="text" class="form-control" id="nom" name="nom" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="courriel">Courriel: <sup style="color:red;">*</sup></label>
+        <input type="text" class="form-control" id="courriel" name="courriel" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="password">Mot de passe: <sup style="color:red;">*</sup></label>
+        <input type="text" class="form-control" id="password" name="password" required>
+    </div>
+
+    <button type="submit">Créer un compte</button>
+</form>
 </body>
 </html>
