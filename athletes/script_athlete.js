@@ -24,6 +24,7 @@ async function chargerAthletes(){
             <p>Vitesse: ${athlete.pts_vitesse}</p>
             <p>Agileté: ${athlete.pts_agilete}</p>
             <p>Résilience: ${athlete.pts_resilience}</p>
+            <a href="modifier.html?id=${athlete.id}">Modifier</a>
             `;
             container.append(row);
         });

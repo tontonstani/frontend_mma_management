@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="script_modifier.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/index.html">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.html">Athlètes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Matchs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Classements</a>
+        </li>
+      </ul>
+      <div class="btn-group d-flex">
+        <a href="/creer_compte.html">Créer un compte</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<h1></h1>
+<form method="POST">
+  <div class="mb-3">
+    <label for="id" class="form-label">Id:</label>
+    <input type="text" class="form-control" id="id" name="id" readonly>
+  </div>
+  <div class="mb-3">
+    <label for="prenom" class="form-label">Prénom:</label>
+    <input type="text" class="form-control" id="prenom" name="prenom" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="nom" class="form-label">Nom de famille:</label>
+    <input type="text" class="form-control" id="nom" name="nom" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="alias" class="form-label">Alias:</label>
+    <input type="text" class="form-control" id="alias" name="alias" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="origine" class="form-label">Origine:</label>
+    <input type="text" class="form-control" id="origine" name="origine" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="taille" class="form-label">Taille:</label>
+    <input type="text" class="form-control" id="taille" name="taille" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="poids" class="form-label">Poids:</label>
+    <input type="text" class="form-control" id="poids" name="poids" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="sexe" class="form-label">Sexe:</label>
+    <input type="text" class="form-control" id="sexe" name="sexe" required>
+  </div>
+
+  <div class="mb-3">
+    <p>Actif</p>
+    <input type="radio" id="actif_vrai" name="actif" required>
+    <label for="actif_vrai" class="form-label">Oui</label>
+
+    <input type="radio"  id="actif_faux" name="actif" required>
+    <label for="actif_faux" class="form-label">Non</label>
+  </div>
+
+  <div class="mb-3">
+    <label for="date_naissance" class="form-label">Date de naissance:</label>
+    <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="force" class="form-label">Points de force:</label>
+    <input type="number" class="form-control" id="force" name="pts_force" min="1" max="10" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="endurance" class="form-label">Points d'endurance:</label>
+    <input type="number" class="form-control" id="endurance" name="pts_endurance" min="1" max="10" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="vitesse" class="form-label">Points de vitesse:</label>
+    <input type="number" class="form-control" id="vitesse" name="pts_vitesse" min="1" max="10" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="agilete" class="form-label">Points de agileté:</label>
+    <input type="number" class="form-control" id="agilete" name="pts_agilete" min="1" max="10" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="resilience" class="form-label">Points de resilience:</label>
+    <input type="number" class="form-control" id="resilience" name="pts_resilience" min="1" max="10" required>
+  </div>
+
+  <button type="submit">Modifier</button>
+</form>
+</body>
+</html>
