@@ -25,12 +25,44 @@ async function chargerAthletes(){
             <p>Agileté: ${athlete.pts_agilete}</p>
             <p>Résilience: ${athlete.pts_resilience}</p>
             <a href="modifier.html?id=${athlete.id}">Modifier</a>
+            <form class="form_suppression" method="POST" data-id="${athlete.id}">
+                <button type="submit">Supprimer</button>
+            </form>
             `;
             container.append(row);
+        });
+        // Attacher les écouteurs aux formulaires créés dynamiquement
+        document.querySelectorAll(".form_suppression").forEach(form => {
+            form.addEventListener("submit", supprimerAthlete);
         });
     }
     catch (error) {
         console.log("Erreur lors du chargement des athlètes:",error);
+    }
+}
+
+async function supprimerAthlete(event){
+    event.preventDefault();
+    //Récupérer le id de l'athlète à supprimer
+    const id = event.currentTarget.getAttribute("data-id");
+
+    //Faire la requête POST pour supprimer
+    try{
+        const response = await fetch(`${API_URL}/supprimer`,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(parseInt(id))
+        });
+        if(!response.ok){
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+        console.log("Succès de suppression")
+        chargerAthletes();
+    }
+    catch(error){
+        console.log("Erreur lors de la suppression")
     }
 }
 
