@@ -17,6 +17,7 @@ async function chargerAthletes(){
             const row = document.createElement("div");
             row.classList.add("col");
             row.innerHTML = `
+            <a href="details.html?id=${athlete.id}">
             <h2>${athlete.prenom} ${athlete.nom}</h2>
             <p>${athlete.origine}</p>
             <p>Force: ${athlete.pts_force}</p>
@@ -28,6 +29,7 @@ async function chargerAthletes(){
             <form class="form_suppression" method="POST" data-id="${athlete.id}">
                 <button type="submit">Supprimer</button>
             </form>
+            </a>
             `;
             container.append(row);
         });
