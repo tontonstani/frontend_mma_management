@@ -1,5 +1,5 @@
 //Lien de l'API
-const API_URL = "http://localhost:8080/api/athlete";//Lien de l'API
+const API_URL = "http://localhost:8080/api/athlete";
 
 //Charger l'athlètes à modifier
 async function getAthlete(){
