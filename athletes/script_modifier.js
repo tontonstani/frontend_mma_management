@@ -16,6 +16,7 @@ async function getAthlete(){
         const athlete = await response.json();
 
         //ajouter les résultats dans les balises dans le formulaire
+        document.getElementById("titre").innerText = `Modifier les informations de ${athlete.prenom} ${athlete.nom}`;
         document.getElementById("id").value = athlete.id;
         document.getElementById("prenom").value = athlete.prenom;
         document.getElementById("nom").value = athlete.nom;
