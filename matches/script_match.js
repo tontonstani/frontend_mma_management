@@ -20,10 +20,14 @@ async function chargerMatches() {
                 <p>${match.date_evenement}</p>
                 <p>${match.lieu}</p>
                 <a href="modifier.html?id=${match.id}">Modifier</a>
-                <form method="POST">
+                <form class="form_suppression" method="POST" data-id="${match.id}">
                     <button type="submit">Supprimer</button>
                 </form>`;
             container.appendChild(row);
+        });
+        // Attacher les écouteurs aux formulaires créés dynamiquement
+        document.querySelectorAll(".form_suppression").forEach(form => {
+            form.addEventListener("submit", supprimerMatch);
         });
     }
     catch (error) {
@@ -33,3 +37,27 @@ async function chargerMatches() {
 
 //Charger les données lorsque c'est prêt
 document.addEventListener("DOMContentLoaded", chargerMatches);
+
+async function supprimerMatch(event){
+    event.preventDefault();
+    const id = event.currentTarget.getAttribute("data-id");
+
+    //Faire la requête POST pour supprimer
+    try{
+        const response = await fetch(`${API_URL}/supprimer`,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(parseInt(id))
+        });
+        if(!response.ok){
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+        console.log("Succès de suppression")
+        chargerMatches();
+    }
+    catch(error){
+        console.log("Erreur lors de la suppression")
+    }
+}
