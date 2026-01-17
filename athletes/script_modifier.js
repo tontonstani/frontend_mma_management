@@ -43,7 +43,7 @@ async function getAthlete(){
     }
 }
 
-async function creerAthletes(event){
+async function ModifierAthletes(event){
     event.preventDefault();
     //Chercher les informations du formulaire
     const id = document.getElementById("id").value;
@@ -94,5 +94,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
-    form.addEventListener("submit", creerAthletes);
+    form.addEventListener("submit", ModifierAthletes);
 });
