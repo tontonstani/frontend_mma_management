@@ -13,13 +13,13 @@ async function chargerMatches() {
 
         const container = document.getElementById("affichage");
         container.innerHTML = "";
-        matches.forEach(matche => {
+        matches.forEach(match => {
             const row = document.createElement("div");
             row.classList.add("col");
             row.innerHTML = `
-                <p>${matche.date_evenement}</p>
-                <p>${matche.lieu}</p>
-                <a href="modifier.html">Modifier</a>
+                <p>${match.date_evenement}</p>
+                <p>${match.lieu}</p>
+                <a href="modifier.html?id=${match.id}">Modifier</a>
                 <form method="POST">
                     <button type="submit">Supprimer</button>
                 </form>`;
