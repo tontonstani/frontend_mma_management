@@ -18,7 +18,11 @@ async function chargerMatches() {
             row.classList.add("col");
             row.innerHTML = `
                 <p>${matche.date_evenement}</p>
-                <p>${matche.lieu}</p>`;
+                <p>${matche.lieu}</p>
+                <a href="modifier.html">Modifier</a>
+                <form method="POST">
+                    <button type="submit">Supprimer</button>
+                </form>`;
             container.appendChild(row);
         });
     }
