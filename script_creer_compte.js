@@ -17,8 +17,8 @@ async function enregistrerUtilisateur(event){
     try{
         const response = await fetch(`${API_URL}/register`,{
             method:"POST",
-            headers:{"content-type":"application/json"},
-            body:JSON.stringify(user)
+            body:JSON.stringify(user),
+            headers:{"content-type":"application/json"}
         });
         if(!response.ok){
             throw new Error(`Erreur HTTP: ${response.status}`);
