@@ -4,7 +4,7 @@ const API_URL = "http://localhost:8080/api/match";
 //Fonction pour charger tous les matches enregistré dans la base de données
 async function chargerMatches() {
     try {
-        const response = await fetch(`${API_URL}/liste`)
+        const response = await fetch(`${API_URL}/listeDTO`)
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
@@ -17,18 +17,19 @@ async function chargerMatches() {
             const row = document.createElement("div");
             row.classList.add("col");
             row.innerHTML = `
-                <p>${match.date_evenement}</p>
-                <p>${match.lieu}</p>
-                <a href="modifier.html?id=${match.id}">Modifier</a>
-                <form class="form_suppression" method="POST" data-id="${match.id}">
+                <h2>${match.adversaire1} VS ${match.adversaire2}</h2>
+                <p>${match.datetime}</p>
+                <p>${match.stadium}</p>
+                <a href="">Modifier</a>
+                <form class="form_suppression" method="POST">
                     <button type="submit">Supprimer</button>
                 </form>`;
             container.appendChild(row);
         });
         // Attacher les écouteurs aux formulaires créés dynamiquement
-        document.querySelectorAll(".form_suppression").forEach(form => {
+        /*document.querySelectorAll(".form_suppression").forEach(form => {
             form.addEventListener("submit", supprimerMatch);
-        });
+        });*/
     }
     catch (error) {
         console.error(error);
