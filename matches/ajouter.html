@@ -36,8 +36,41 @@
 <h1>Ajouter un match</h1>
 <form method="POST">
   <div class="mb-3">
-    <label for="date_evenement">Date et l'heure:</label>
-    <input type="datetime-local" class="form-control" id="date_evenement" name="date_evenement" required>
+    <label for="adversaire1">Adversaire #1:</label>
+    <select name="adversaire1" id="adversaire1" class="form-control">
+      <option value="1">W</option>
+      <option value="1">X</option>
+      <option value="1">Y</option>
+      <option value="1">Z</option>
+      <option value="1">0</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="adversaire2">Adversaire #2:</label>
+    <select name="adversaire2" id="adversaire2" class="form-control">
+      <option value="1">w</option>
+      <option value="1">x</option>
+      <option value="1">y</option>
+      <option value="1">z</option>
+      <option value="1">0</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="gagnant">Gagnant:</label>
+    <select name="gagnant" id="gagnant" class="form-control">
+      <option value="1">w</option>
+      <option value="1">x</option>
+      <option value="1">y</option>
+      <option value="1">z</option>
+      <option value="1">0</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="datetime">Date et l'heure:</label>
+    <input type="datetime-local" class="form-control" id="datetime" name="datetime" required>
   </div>
 
   <div class="mb-3">
