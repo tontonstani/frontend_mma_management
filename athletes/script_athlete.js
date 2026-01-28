@@ -4,7 +4,7 @@ const API_URL = "http://localhost:8080/api/athlete";
 //Fonction pour charger tous les athletes de l'API
 async function chargerAthletes(){
     try{
-        const response = await fetch(`${API_URL}/liste`)
+        const response = await fetch(`${API_URL}/listeDTO`)
         if(!response.ok){
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
