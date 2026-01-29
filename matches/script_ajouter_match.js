@@ -4,11 +4,14 @@ const API_URL="http://localhost:8080/api/match";
 async function creerMatch(event){
     event.preventDefault();
     //Chercher les informations du formulaire
-    const date_evenement = document.getElementById("date_evenement").value;
-    const lieu  = document.getElementById("lieu").value;
+    const adversaire1_id = parseInt(document.getElementById("adversaire1").value);
+    const adversaire2_id = parseInt(document.getElementById("adversaire2").value);
+    const gagnant_id = parseInt(document.getElementById("gagnant").value);
+    const dateTime = document.getElementById("dateTime").value;
+    const stadium  = document.getElementById("stadium").value;
 
     //Créer l'objet Match
-    const nouv_Match={date_evenement, lieu};
+    const nouv_Match={adversaire1_id,adversaire2_id,gagnant_id,dateTime, stadium};
 
     //Faire une requête POST pour envoyer l'objet
     try{
