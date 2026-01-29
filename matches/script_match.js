@@ -20,7 +20,7 @@ async function chargerMatches() {
                 <h2>${match.adversaire1} VS ${match.adversaire2}</h2>
                 <p>${match.datetime}</p>
                 <p>${match.stadium}</p>
-                <a href="">Modifier</a>
+                <a href="modifier.html?id=${match.id}">Modifier</a>
                 <form class="form_suppression" method="POST">
                     <button type="submit">Supprimer</button>
                 </form>`;

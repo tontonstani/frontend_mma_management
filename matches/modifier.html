@@ -39,14 +39,33 @@
         <label for="id">ID:</label>
         <input type="number" class="form-control" id="id" readonly>
     </div>
+
     <div class="mb-3">
-        <label for="date_evenement">Date et l'heure:</label>
-        <input type="datetime-local" class="form-control" id="date_evenement" name="date_evenement" required>
+        <label for="adversaire1">Adversaire #1:</label>
+        <select name="adversaire1" id="adversaire1" class="form-control">
+        </select>
     </div>
 
     <div class="mb-3">
-        <label for="lieu">Lieu:</label>
-        <select class="form-select" id="lieu" name="lieu">
+        <label for="adversaire2">Adversaire #2:</label>
+        <select name="adversaire2" id="adversaire2" class="form-control">
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="gagnant">Gagnant:</label>
+        <select name="gagnant" id="gagnant" class="form-control">
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="dateTime">Date et l'heure:</label>
+        <input type="datetime-local" class="form-control" id="dateTime" name="dateTime" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="stadium">Lieu:</label>
+        <select class="form-select" id="stadium" name="stadium">
             <option value=null>...</option>
             <option value="Stade 1">Stade 1</option>
             <option value="Stade 2">Stade 2</option>

@@ -1,5 +1,5 @@
 //Lien de l'API
-const API_URL = "http://localhost:8080/api/match";
+const API_URL = "http://localhost:8080/api";
 
 //Charger les informations du match à modifier
 async function getMatch(){
@@ -8,7 +8,7 @@ async function getMatch(){
 
     //Faire une requête GET pour chercher le match selon son ID
     try{
-        const response = await fetch(`${API_URL}/${id}`);
+        const response = await fetch(`${API_URL}/match/${id}`);
         if(!response.ok){
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
@@ -17,19 +17,18 @@ async function getMatch(){
 
         //Ajouter les informations dans les balises du formulaire
         document.getElementById("titre").innerText = `Modifier #${match.id}`;
+        document.getElementById("adversaire1").value = match.adversaire1_id.toString();
+        document.getElementById("adversaire2").value = match.adversaire2_id.toString();
+        document.getElementById("gagnant").value = match.gagnant_id.toString();
         document.getElementById("id").value = match.id;
-        document.getElementById("date_evenement").value = match.date_evenement;
-        document.getElementById("lieu").value = match.lieu;
+        document.getElementById("dateTime").value = match.dateTime;
+        document.getElementById("stadium").value = match.stadium;
     }
     catch(error){
         console.log('Erreur lors du chargement des informations du match: ',error);
     }
 }
 
-//Charger les données losrque c'est prêt
-document.addEventListener("DOMContentLoaded", async () => {
-    await getMatch();
-});
 
 //Fonction pour modifier un match
 async function modifierMatch(event){
@@ -45,7 +44,7 @@ async function modifierMatch(event){
 
     //Faire la requête POST pour envoyer l'objet
     try{
-        const response = await fetch(`${API_URL}/modifier`, {
+        const response = await fetch(`${API_URL}/match/modifier`, {
             method:'POST',
             headers:{"content-type":"application/json"},
             body:JSON.stringify(Match),
@@ -60,6 +59,55 @@ async function modifierMatch(event){
         console.log("Erreur lors de la modification du match: ",error);
     }
 }
+
+//Chercher tous les athlètes
+async function tousAthlete() {
+    try {
+        const response = await fetch(`${API_URL}/athlete/listeDTO`)
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+        const athletes = await response.json();
+
+        //Liste pour le champ adversaire 1
+        const container_adversaire1 = document.getElementById('adversaire1');
+        container_adversaire1.innerHTML = "";
+        athletes.forEach(athlete => {
+            const option = document.createElement("option");
+            option.value = athlete.id;
+            option.innerText = `${athlete.prenom} ${athlete.nom}`;
+            container_adversaire1.appendChild(option);
+        });
+
+        //Liste pour le champ adversaire 2
+        const container_adversaire2 = document.getElementById('adversaire2');
+        container_adversaire2.innerHTML = "";
+        athletes.forEach(athlete => {
+            const option = document.createElement("option");
+            option.value = athlete.id;
+            option.innerText = `${athlete.prenom} ${athlete.nom}`;
+            container_adversaire2.appendChild(option);
+        });
+
+        //Liste pour le champ gagnant
+        const container_gagnant = document.getElementById('gagnant');
+        container_gagnant.innerHTML = "";
+        athletes.forEach(athlete => {
+            const option = document.createElement("option");
+            option.value = athlete.id;
+            option.innerText = `${athlete.prenom} ${athlete.nom}`;
+            container_gagnant.appendChild(option);
+        });
+    } catch (error) {
+        console.log("Erreur lors du chargement des athlètes:", error);
+    }
+}
+
+//Charger les données losrque c'est prêt
+document.addEventListener("DOMContentLoaded", async () => {
+    await getMatch();
+    await tousAthlete();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
