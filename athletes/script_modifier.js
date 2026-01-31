@@ -51,7 +51,7 @@ async function ModifierAthletes(event){
     const taille = document.getElementById("taille").value;
     const poids = document.getElementById("poids").value;
     const sexe = document.getElementById("sexe").value;
-    const actif = document.getElementsByClassName("actif").value;
+    const actif = document.getElementById("actif").checked;
     const date_naissance = document.getElementById("date_naissance").value;
     const pts_force = parseInt(document.getElementById("force").value);
     const pts_endurance = parseInt(document.getElementById("endurance").value);
