@@ -23,7 +23,8 @@ async function chargerMatches() {
                 <a href="modifier.html?id=${match.id}">Modifier</a>
                 <form class="form_suppression" method="POST">
                     <button type="submit">Supprimer</button>
-                </form>`;
+                </form>
+                <a href="details.html?id=${match.id}">Détails du match</a>`;
             container.appendChild(row);
         });
         // Attacher les écouteurs aux formulaires créés dynamiquement
