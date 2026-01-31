@@ -21,16 +21,16 @@ async function chargerMatches() {
                 <p>${match.datetime}</p>
                 <p>${match.stadium}</p>
                 <a href="modifier.html?id=${match.id}">Modifier</a>
-                <form class="form_suppression" method="POST">
+                <form class="form_suppression" method="POST" data-id="${match.id}">
                     <button type="submit">Supprimer</button>
                 </form>
                 <a href="details.html?id=${match.id}">Détails du match</a>`;
             container.appendChild(row);
         });
         // Attacher les écouteurs aux formulaires créés dynamiquement
-        /*document.querySelectorAll(".form_suppression").forEach(form => {
+        document.querySelectorAll(".form_suppression").forEach(form => {
             form.addEventListener("submit", supprimerMatch);
-        });*/
+        });
     }
     catch (error) {
         console.error(error);
