@@ -26,10 +26,7 @@ async function getAthlete(){
         document.getElementById("poids").value = athlete.poids;
         document.getElementById("sexe").value = athlete.sexe;
         if(athlete.actif){
-            document.getElementById("actif_vrai").checked=true;
-        }
-        else{
-            document.getElementById("actif_faux").checked=true;
+            document.getElementById("actif").checked=true;
         }
         document.getElementById("date_naissance").value = athlete.date_naissance;
         document.getElementById("force").value = athlete.pts_force;
