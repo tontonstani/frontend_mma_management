@@ -8,7 +8,7 @@ async function getMatch(){
 
     //Faire une requête GET pour chercher le match selon son ID
     try{
-        const response = await fetch(`${API_URL}/match/${id}`);
+        const response = await fetch(`${API_URL}/match/modifier/${id}`);
         if(!response.ok){
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
@@ -36,11 +36,14 @@ async function modifierMatch(event){
 
     //Récupérer les données dans le formulaire
     const id = document.getElementById("id").value;
-    const date_evenement = document.getElementById("date_evenement").value;
-    const lieu = document.getElementById("lieu").value;
+    const adversaire1_id = parseInt(document.getElementById("adversaire1").value);
+    const adversaire2_id = parseInt(document.getElementById("adversaire2").value);
+    const gagnant_id = parseInt(document.getElementById("gagnant").value);
+    const dateTime = document.getElementById("dateTime").value;
+    const stadium = document.getElementById("stadium").value;
 
     //Créer l'objet MAtch
-    const Match = {id, date_evenement, lieu};
+    const Match = {id, adversaire1_id,adversaire2_id,gagnant_id, dateTime, stadium};
 
     //Faire la requête POST pour envoyer l'objet
     try{
@@ -105,8 +108,8 @@ async function tousAthlete() {
 
 //Charger les données losrque c'est prêt
 document.addEventListener("DOMContentLoaded", async () => {
-    await getMatch();
     await tousAthlete();
+    await getMatch();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
