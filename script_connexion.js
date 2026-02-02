@@ -30,15 +30,8 @@ async function connexion(event) {
         const user = data.username;
         const role = data.roles[0];
 
-        //Enregistrer le token dans le cookie
-        document.cookie = `
-        token=${token};
-        expires=${24*60*60*1000};
-        httpOnly; 
-        path=/;
-        `;
-
         // Enregistrer le username et role
+        sessionStorage.setItem("token", token);
         sessionStorage.setItem("role", role);
         sessionStorage.setItem("user", user);
 
