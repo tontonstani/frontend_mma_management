@@ -33,6 +33,6 @@ async function enregistrerUtilisateur(event){
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
-    const form = document.querySelector("form");
+    const form = document.getElementById("form_inscription");
     form.addEventListener("submit", enregistrerUtilisateur);
 });

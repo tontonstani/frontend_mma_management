@@ -43,6 +43,6 @@ async function connexion(event) {
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    const form = document.querySelector("form");
+    const form = document.getElementById("form_connexion");
     form.addEventListener("submit",connexion);
 });
