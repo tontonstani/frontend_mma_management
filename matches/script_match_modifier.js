@@ -113,6 +113,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
+    const form = document.getElementById("form_match_modifier");
     form.addEventListener("submit", modifierMatch);
 });

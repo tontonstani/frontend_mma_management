@@ -79,6 +79,6 @@ document.addEventListener("DOMContentLoaded", tousAthlete);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
+    const form = document.getElementById("form_match_ajouter");
     form.addEventListener("submit", creerMatch);
 });

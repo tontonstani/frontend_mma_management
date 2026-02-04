@@ -90,6 +90,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
+    const form = document.getElementById("form_athlete_modifier");
     form.addEventListener("submit", ModifierAthletes);
 });

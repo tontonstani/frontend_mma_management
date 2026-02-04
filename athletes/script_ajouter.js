@@ -46,6 +46,6 @@ async function creerAthletes(event){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
+    const form = document.getElementById("form_athlete_ajouter");
     form.addEventListener("submit", creerAthletes);
 });
