@@ -31,6 +31,9 @@ async function getClassement() {
              <td class="placeholder-glow">
                 <span class="placeholder col-1"
              </td>
+             <td class="placeholder-glow">
+                <span class="placeholder col-1"
+             </td>
             `;
             tbody.appendChild(tr);
         });
