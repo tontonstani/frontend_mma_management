@@ -9,9 +9,20 @@ async function deconnexion(event){
 }
 document.addEventListener("DOMContentLoaded",()=>{
     if(sessionStorage.getItem("user")!= null){
+        //Faire disparaître la case de connexion et créer un compte
+        document.getElementById("case_auth_intro").classList.add("d-none");
+
+        document.getElementById("case_connecte").classList.remove("d-none");
+
+
         const user = sessionStorage.getItem("user");
-        const auth_section = document.getElementById("case_auth_intro");
-        auth_section.innerHTML = `<p>Bonjour <strong>${user}</strong></p>`;
+
+        //Faire afficher le message de bienvenue
+        const message = document.getElementById("message_connexion");
+        message.innerHTML = "Bonjour <strong>"+user+"</strong>";
+    }
+    else{
+        document.getElementById("case_connecte").classList.add("d-none");
     }
 
     const form = document.querySelector("form");
