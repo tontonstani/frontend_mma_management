@@ -1,28 +1,6 @@
 //Lien de l'API
 const API_URL = "http://localhost:8080/api/athlete";
 
-function afficherAthletes(donnee) {
-    donnee.forEach(athlete => {
-        const row = document.createElement("div");
-        row.classList.add("col");
-        row.innerHTML = `
-            <h2>${athlete.prenom} ${athlete.nom}</h2>
-            <p>${athlete.origine}</p>
-            <p>Force: ${athlete.pts_force}</p>
-            <p>Endurance: ${athlete.pts_endurance}</p>
-            <p>Vitesse: ${athlete.pts_vitesse}</p>
-            <p>Agileté: ${athlete.pts_agilete}</p>
-            <p>Résilience: ${athlete.pts_resilience}</p>
-            <a href="details.html?id=${athlete.id}">Profil</a>
-            <a href="modifier.html?id=${athlete.id}">Modifier</a>
-            <form class="form_suppression" method="POST" data-id="${athlete.id}">
-                <button type="submit">Supprimer</button>
-            </form>
-            `
-        container.append(row);
-    });
-}
-
 //Fonction pour charger tous les athletes de l'API
 async function chargerAthletes() {
     try {
