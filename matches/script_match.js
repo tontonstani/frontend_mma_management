@@ -11,7 +11,7 @@ async function chargerMatches() {
 
         //Récupérer la liste de données venus de l'API
         const matches = await response.json();
-        const lst = [1,2,3];
+        const lst = [1, 2, 3];
 
         const container = document.getElementById("affichage");
         container.innerHTML = "";
@@ -42,18 +42,25 @@ async function chargerMatches() {
                 <h2>${match.adversaire1} VS ${match.adversaire2}</h2>
                 <p>${match.datetime}</p>
                 <p>${match.stadium}</p>
-                <a href="modifier.html?id=${match.id}">Modifier</a>
-                <form class="form_suppression" method="POST" data-id="${match.id}">
-                    <button type="submit">Supprimer</button>
-                </form>
-                <a href="details.html?id=${match.id}">Détails du match</a>`;
+                <a href="details.html?id=${match.id}">Détails du match</a>`
+                if (sessionStorage.getItem('user') === "ROLE_ADMIN") {
+                    row.innerHTML +=
+                        `<a href="modifier.html?id=${match.id}">Modifier</a>
+                         <form class="form_suppression" method="POST" data-id="${match.id}">
+                            <button type="submit">Supprimer</button>
+                         </form>`
+                }
                 container.appendChild(row);
             });
         }, 1500)
         // Attacher les écouteurs aux formulaires créés dynamiquement
-        document.querySelectorAll(".form_suppression").forEach(form => {
-            form.addEventListener("submit", supprimerMatch);
-        });
+        if (sessionStorage.getItem('user') === "ROLE_ADMIN") {
+            document.querySelectorAll(".form_suppression").forEach(form => {
+                form.addEventListener("submit", supprimerMatch);
+            });
+
+            document.getElementById("link_match_ajouter").classList.remove("d-none");
+        }
     } catch (error) {
         console.error(error);
     }
