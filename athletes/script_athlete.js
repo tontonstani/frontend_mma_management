@@ -43,6 +43,9 @@ async function chargerAthletes() {
                     row.innerHTML = `
             <h2>${athlete.prenom} ${athlete.nom}</h2>
             <p>${athlete.origine}</p>
+            <div>
+                <canvas id="chart_athlete"></canvas>
+            </div>
             <p>Force: ${athlete.pts_force}</p>
             <p>Endurance: ${athlete.pts_endurance}</p>
             <p>Vitesse: ${athlete.pts_vitesse}</p>
@@ -59,6 +62,36 @@ async function chargerAthletes() {
                         <button type="submit">Supprimer</button>
                     </form>`
                     }
+/*
+                    //Faire afficher un diagramme des données de l'athlète
+                    const ctx = document.getElementById("chart_athlete");
+
+                    new Chart(ctx, {
+                        type:'radar',
+                        data:{
+                            labels:['Force','Endurance','Vitesse','Agilité','Résilience'],
+                            datasets:[{
+                                label:`${athlete.prenom} ${athlete.nom}`,
+                                data:[
+                                    athlete.pts_force,
+                                    athlete.pts_endurance,
+                                    athlete.pts_vitesse,
+                                    athlete.pts_agilete,
+                                    athlete.pts_resilience,
+                                ],
+                                fill:true,
+                                backgroundColor:'#ff7878',
+                                borderColor:'#ff0000',
+                            }]
+                        },
+                        options: {
+                            elements:{
+                                line:{
+                                    borderWidth:2
+                                }
+                            }
+                        }
+                    })*/
                     container.append(row);
                 });
             },
