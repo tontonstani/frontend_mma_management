@@ -24,12 +24,70 @@ async function getInfoAthlete(){
             <p>${athlete.date_naissance}</p>
             <p>${athlete.style_combat}</p>
             <p>Stats:</p>
-            <p>Force: ${athlete.pts_force}</p>
-            <p>Vitesse: ${athlete.pts_vitesse}</p>
-            <p>️Agileté: ${athlete.pts_agilete}</p>
-            <p>Endurance ${athlete.pts_endurance}</p>
-            <p>Résilience: ${athlete.pts_resilience}</p>
-        `;
+            <div class="w-25 border rounded-3 p-2 bg-black">
+                <canvas id="chart_athlete"></canvas>
+            </div>`
+                    //Faire afficher un diagramme des données de l'athlète
+                    const ctx = document.getElementById("chart_athlete");
+
+                    new Chart(ctx, {
+                        type:'radar',
+                        data:{
+                            labels:['Force','Endurance','Vitesse','Agilité','Résilience'],
+                            datasets:[{
+                                label:`${athlete.prenom} ${athlete.nom}`,
+                                data:[
+                                    athlete.pts_force,
+                                    athlete.pts_endurance,
+                                    athlete.pts_vitesse,
+                                    athlete.pts_agilete,
+                                    athlete.pts_resilience,
+                                ],
+                                fill:true,
+                                backgroundColor:'rgba(153,0,237,0.75)',
+                                borderColor:'rgba(153,0,237,1)',
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color:"white",
+                                        font:{
+                                            size: 17,
+                                            weight:'bold'
+                                        }
+                                    }
+                                }
+                            },
+                            elements:{
+                                line:{
+                                    borderWidth:1
+                                }
+                            },
+                            scales:{
+                                r:{
+                                    angleLines:{
+                                        color:'white'
+                                    },
+                                    grid:{
+                                        color:'white',
+                                    },
+                                    suggestedMin:0,
+                                    suggestedMax:10,
+                                    pointLabels:{
+                                        display:'true',
+                                        centerPointLabels:'true',
+                                        color:'white',
+                                        font:{
+                                            size:15
+                                        }
+                                    },
+                                }
+                            }
+                        }
+                    })
+        ;
     }
     catch(error){
         console.log('Erreur lors du chargement des informations de l\'athlètes: ',error)
