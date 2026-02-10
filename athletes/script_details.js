@@ -1,6 +1,19 @@
 //Lien de l'API
 const API_URL = "http://localhost:8080/api/athlete";
 
+function calculateAge(birthdate) {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    // Adjust age if the current date is before the birthday this year
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+console.log(calculateAge('1990-05-15')); // Output: Age as an integer
+
 async function getInfoAthlete(){
     //Récupérer le ID
     const params = new URLSearchParams(window.location.search);
@@ -13,20 +26,33 @@ async function getInfoAthlete(){
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
         const athlete = await response.json();
+        var age = calculateAge(athlete.date_naissance);
+
+        var actif = "";
+        if(athlete.actif){
+            actif = "Actif";
+        }
+        else{
+            actif = "Retraité";
+        }
 
         //Afficher les informations dans la pages
         const container = document.getElementById('information');
         container.innerHTML = `
-            <h1>${athlete.prenom} ${athlete.nom} ALIAS ${athlete.alias}</h1>
-            <p>${athlete.origine}</p>
-            <p>${athlete.poids} kg / ${athlete.taille} cm</p>
-            <p>${athlete.sexe}</p>
-            <p>${athlete.date_naissance}</p>
-            <p>${athlete.style_combat}</p>
-            <p>Stats:</p>
-            <div class="w-25 border rounded-3 p-2 bg-black">
-                <canvas id="chart_athlete"></canvas>
-            </div>`
+            <div class="bg-secondary w-50 text-white p-1 border rounded-1">
+                <h1>${athlete.prenom} "${athlete.alias}" ${athlete.nom} <span class="badge text-bg-dark">${actif}</span></h1>
+                <p class="fw-semibold">${athlete.victoires} - ${athlete.defaites} (Victoires - Défaites)</p>
+                <p>Pays: ${athlete.origine}</p>
+                <p>Poids: ${athlete.poids} kg</p>
+                <p>Taille: ${athlete.taille} cm</p>
+                <p>Sexe: ${athlete.sexe}</p>
+                <p>Âge: ${age} ans (${athlete.date_naissance})</p>
+                <p>Style: ${athlete.style_combat}</p>
+            </div>
+                <h2>Stats</h2>
+                <div class="w-25 border rounded-3 p-2 bg-black">
+                    <canvas id="chart_athlete"></canvas>
+                </div>`
                     //Faire afficher un diagramme des données de l'athlète
                     const ctx = document.getElementById("chart_athlete");
 
