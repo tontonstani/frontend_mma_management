@@ -41,14 +41,11 @@ async function chargerAthletes() {
                     const row = document.createElement("div");
                     row.classList.add("col");
                     row.innerHTML = `
+            <div class="border border-1 rounded text-center p-1">
             <h2>${athlete.prenom} ${athlete.nom}</h2>
-            <p>${athlete.origine}</p>
-            <p>Force: ${athlete.pts_force}</p>
-            <p>Endurance: ${athlete.pts_endurance}</p>
-            <p>Vitesse: ${athlete.pts_vitesse}</p>
-            <p>Agileté: ${athlete.pts_agilete}</p>
-            <p>Résilience: ${athlete.pts_resilience}</p>
-            <a href="details.html?id=${athlete.id}">Profil</a>`;
+            <p class="fw-bolder">${athlete.origine}</p>
+            <p class="fw-bold"><span class="text-success">${athlete.victoires}</span> - <span class="text-danger">${athlete.defaites}</span></p>
+            <a class="btn btn-outline-dark" href="details.html?id=${athlete.id}">Profil</a>`;
 
                     //Afficher si l'utilisateur connecté a les permissions ADMIN
                     if (sessionStorage.getItem("user") === "ROLE_ADMIN") {
@@ -57,7 +54,7 @@ async function chargerAthletes() {
                     <a href="modifier.html?id=${athlete.id}">Modifier</a>
                     <form class="form_suppression" method="POST" data-id="${athlete.id}">
                         <button type="submit">Supprimer</button>
-                    </form>`
+                    </form></div>`
                     }
                     container.append(row);
                 });
