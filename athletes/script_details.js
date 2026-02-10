@@ -28,6 +28,7 @@ async function getInfoAthlete(){
         const athlete = await response.json();
         var age = calculateAge(athlete.date_naissance);
 
+        //Message pour afficher si l'athlète est actif
         var actif = "";
         if(athlete.actif){
             actif = "Actif";
@@ -50,16 +51,21 @@ async function getInfoAthlete(){
                 <p>Style: ${athlete.style_combat}</p>
             </div>
                 <h2>Stats</h2>
-                <div class="w-25 border rounded-3 p-2 bg-black">
-                    <canvas id="chart_athlete"></canvas>
-                </div>`
+                        <div class="w-25 border rounded-3 p-2 bg-black">
+                            <canvas id="chart_athlete"></canvas>
+                        </div>`;
+
                     //Faire afficher un diagramme des données de l'athlète
                     const ctx = document.getElementById("chart_athlete");
 
                     new Chart(ctx, {
                         type:'radar',
                         data:{
-                            labels:['Force','Endurance','Vitesse','Agilité','Résilience'],
+                            labels:[`Force (${athlete.pts_force})`,
+                                `Endurance (${athlete.pts_endurance})`,
+                                `Vitesse (${athlete.pts_vitesse})`,
+                                `Agilité (${athlete.pts_agilete})`,
+                                `Résilience (${athlete.pts_resilience})`],
                             datasets:[{
                                 label:`${athlete.prenom} ${athlete.nom}`,
                                 data:[
