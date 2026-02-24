@@ -53,7 +53,7 @@ async function chargerAthletes() {
                             `
                     <a href="modifier.html?id=${athlete.id}">Modifier</a>
                     <form class="form_suppression" method="POST" data-id="${athlete.id}">
-                        <button type="submit">Supprimer</button>
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form></div>`
                     }
                     container.append(row);

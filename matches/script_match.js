@@ -37,18 +37,18 @@ async function chargerMatches() {
             container.innerHTML = "";
             matches.forEach(match => {
                 const row = document.createElement("div");
-                row.classList.add("col");
+                row.classList.add("col","border", "border-1", "rounded", "text-center", "p-1");
                 row.innerHTML = `
-                <h2>${match.adversaire1} VS ${match.adversaire2}</h2>
-                <p>${match.datetime}</p>
-                <p>${match.stadium}</p>
-                <a href="details.html?id=${match.id}">Détails du match</a>`
-                if (sessionStorage.getItem('user') === "ROLE_ADMIN") {
-                    row.innerHTML +=
-                        `<a href="modifier.html?id=${match.id}">Modifier</a>
-                         <form class="form_suppression" method="POST" data-id="${match.id}">
-                            <button type="submit">Supprimer</button>
-                         </form>`
+                    <h2>${match.adversaire1} VS ${match.adversaire2}</h2>
+                    <p>${match.datetime}</p>
+                    <p>${match.stadium}</p>
+                    <a class="btn btn-outline-secondary" href="details.html?id=${match.id}">Détails du match</a>`
+                    if (sessionStorage.getItem('user') === "ROLE_ADMIN") {
+                        row.innerHTML +=
+                            `<a href="modifier.html?id=${match.id}">Modifier</a>
+                            <form class="form_suppression" method="POST" data-id="${match.id}">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>`
                 }
                 container.appendChild(row);
             });
