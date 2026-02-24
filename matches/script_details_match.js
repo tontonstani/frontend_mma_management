@@ -16,6 +16,8 @@ async function details_match(){
         const match = await response.json();
 
         //Afficher les informations du matches
+        const titre = document.getElementById("titre");
+        titre.innerText = `Compte rendu du match`;
         const container = document.getElementById("information");
         container.innerHTML = `
             <p>Combattant #1: ${match.adversaire1}</p>
