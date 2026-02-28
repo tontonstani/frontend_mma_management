@@ -40,9 +40,10 @@ async function chargerMatches() {
                 row.classList.add("col","border", "border-1", "rounded", "text-center", "p-1");
                 row.innerHTML = `
                     <h2>${match.adversaire1} VS ${match.adversaire2}</h2>
-                    <p>${match.datetime}</p>
-                    <p>${match.stadium}</p>
-                    <a class="btn btn-outline-secondary" href="details.html?id=${match.id}">Détails du match</a>`
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#details_match">
+                        Détails du match
+                    </button>
+                    <!--<a class="btn btn-outline-secondary" href="details.html?id=${match.id}">Détails du match</a>-->`
                     if (sessionStorage.getItem('user') === "ROLE_ADMIN") {
                         row.innerHTML +=
                             `<a href="modifier.html?id=${match.id}">Modifier</a>
