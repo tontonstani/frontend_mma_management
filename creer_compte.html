@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Créer un compte</title>
     <link rel="icon" type="image/png" href="logo/LOGO_MMA.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
     <script src="script_creer_compte.js"></script>
     <script src="verification_authentification.js"></script>
 </head>
@@ -14,7 +17,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -42,28 +46,34 @@
     </div>
 </nav>
 <h1 class="text-center">Créer un compte</h1>
-<form method="POST" id="form_inscription">
-    <div class="mb-3">
-        <label for="prenom">Prénom: <sup style="color:red;">*</sup></label>
-        <input type="text" class="form-control" id="prenom" name="prenom" required>
-    </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5 bg bg-secondary-subtle p-2 border rounded-2">
+            <form method="POST" id="form_inscription">
+                <div class="mb-3">
+                    <label for="prenom">Prénom: <sup style="color:red;">*</sup></label>
+                    <input type="text" class="form-control" id="prenom" name="prenom" required>
+                </div>
 
-    <div class="mb-3">
-        <label for="nom">Nom de famille: <sup style="color:red;">*</sup></label>
-        <input type="text" class="form-control" id="nom" name="nom" required>
-    </div>
+                <div class="mb-3">
+                    <label for="nom">Nom de famille: <sup style="color:red;">*</sup></label>
+                    <input type="text" class="form-control" id="nom" name="nom" required>
+                </div>
 
-    <div class="mb-3">
-        <label for="courriel">Courriel: <sup style="color:red;">*</sup></label>
-        <input type="text" class="form-control" id="courriel" name="courriel" required>
-    </div>
+                <div class="mb-3">
+                    <label for="courriel">Courriel: <sup style="color:red;">*</sup></label>
+                    <input type="text" class="form-control" id="courriel" name="courriel" required>
+                </div>
 
-    <div class="mb-3">
-        <label for="password">Mot de passe: <sup style="color:red;">*</sup></label>
-        <input type="text" class="form-control" id="password" name="password" required>
-    </div>
+                <div class="mb-3">
+                    <label for="password">Mot de passe: <sup style="color:red;">*</sup></label>
+                    <input type="text" class="form-control" id="password" name="password" required>
+                </div>
 
-    <button type="submit">Créer un compte</button>
-</form>
+                <button type="submit" class="btn btn-primary w-100">Créer un compte</button>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
