@@ -66,38 +66,60 @@ async function chargerMatches() {
     }
 }
 
-//Fonction pour aller chercher les données du match
-async function details_match(){
-    //Récupérer le ID
-    const id = event.currentTarget.getAttribute("data-id");
+//Récupérer et afficher les données du match dans le modal
+document.addEventListener("DOMContentLoaded", () => {
+    chargerMatches();
 
-    try{
-        const response = await fetch(`${URL_API}/${id}`);
-        if(!response.ok){
-            throw new Error(`Erreur HTTP: ${response.status}`);
+    const modal = document.getElementById("details_match");
+
+    modal.addEventListener("show.bs.modal", async function (event) {
+
+        const button = event.relatedTarget; // bouton cliqué
+        const id = button.getAttribute("data-id");
+
+        try {
+            const response = await fetch(`${API_URL}/${id}`);
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP: ${response.status}`);
+            }
+
+            const match = await response.json();
+
+            if(match.adversaire1 === match.gagnant) {
+                document.getElementById("athlete_1").innerHTML = `
+                                                                            Athlète #1: <br>
+                                                                            ${match.adversaire1}
+                                                                            <br> <span class="badge text-bg-primary">Gagnant</span>`;
+            }
+            else{
+                document.getElementById("athlete_1").innerHTML = `Athlète #1: <br> ${match.adversaire1}`;
+            }
+
+
+            if(match.adversaire2 === match.gagnant) {
+                document.getElementById("athlete_2").innerHTML = `
+                                                                            Athlète #2: <br>
+                                                                            ${match.adversaire2}
+                                                                            <br> <span class="badge text-bg-primary">Gagnant</span>`;
+            }
+            else{
+                document.getElementById("athlete_2").innerHTML = `Athlète #2: <br> ${match.adversaire2}`;
+            }
+
+            document.getElementById("date_heure").innerHTML =
+                `Date: ${match.datetime}`;
+
+            document.getElementById("stade").innerHTML =
+                `Stade: ${match.stadium}`;
+
+        } catch (error) {
+            console.log("Erreur chargement détails :", error);
         }
-
-        const match = await response.json();
-
-        //Afficher les informations du matches
-        const athlete_1 = document.getElementById("athlete_1");
-        const athlete_2 = document.getElementById("athlete_2");
-        const date_heure = document.getElementById("date_heure");
-        const stade = document.getElementById("stade");
-
-        athlete_1.innerHTML = `Athlète #1: <br> ${match.adversaire1}`;
-        athlete_2.innerHTML = `Athlète #2: <br> ${match.adversaire2}`;
-        date_heure.innerHTML = `Date: ${match.datetime}`;
-        stade.innerHTML = `Stade: ${match.stadium}`
-
-    }
-    catch(error){
-        console.log('Erreur lors du chargement des informations du match: ',error)
-    }
-}
+    });
+});
 
 //Charger les données lorsque c'est prêt
-document.addEventListener("DOMContentLoaded", chargerMatches, details_match);
+document.addEventListener("DOMContentLoaded", chargerMatches);
 
 async function supprimerMatch(event) {
     event.preventDefault();
