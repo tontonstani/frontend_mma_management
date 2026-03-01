@@ -41,10 +41,10 @@ async function getInfoAthlete(){
         const container = document.getElementById('information');
         container.innerHTML = `
 <div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
+    <div class="row justify-content-center align-items-stretch g-4">
 
-            <div class="bg-secondary text-white p-4 border rounded-3 text-center">
+        <div class="col-12 col-lg-5">
+            <div class="bg-secondary text-white p-4 border rounded-3 text-center h-100">
                 <h1>
                     ${athlete.prenom} "${athlete.alias}" ${athlete.nom}
                     <span class="badge text-bg-dark">${actif}</span>
@@ -61,14 +61,14 @@ async function getInfoAthlete(){
                 <p>Âge: ${age} ans (${athlete.date_naissance})</p>
                 <p>Style: ${athlete.style_combat}</p>
             </div>
+        </div>
 
-            <h2 class="text-center mt-4">Stats</h2>
-
-            <div class="border rounded-3 p-3 bg-black mt-3">
+        <div class="col-12 col-lg-5">
+            <div class="border rounded-3 p-3 bg-black h-100">
                 <canvas id="chart_athlete"></canvas>
             </div>
-
         </div>
+
     </div>
 </div>
 `;
