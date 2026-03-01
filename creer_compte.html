@@ -12,7 +12,7 @@
     <script src="script_creer_compte.js"></script>
     <script src="verification_authentification.js"></script>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <!-- Barre de naviguation -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
@@ -48,35 +48,41 @@
         </div>
     </div>
 </nav>
-<h1 class="text-center">Créer un compte</h1>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-5 bg bg-secondary-subtle p-2 border rounded-2">
-            <form method="POST" id="form_inscription">
-                <div class="mb-3">
-                    <label for="prenom">Prénom: <sup style="color:red;">*</sup></label>
-                    <input type="text" class="form-control" id="prenom" name="prenom" required>
-                </div>
+<div class="flex-grow-1">
+    <h1 class="text-center">Créer un compte</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-5 bg bg-secondary-subtle p-2 border rounded-2">
+                <form method="POST" id="form_inscription">
+                    <div class="mb-3">
+                        <label for="prenom">Prénom: <sup style="color:red;">*</sup></label>
+                        <input type="text" class="form-control" id="prenom" name="prenom" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="nom">Nom de famille: <sup style="color:red;">*</sup></label>
-                    <input type="text" class="form-control" id="nom" name="nom" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="nom">Nom de famille: <sup style="color:red;">*</sup></label>
+                        <input type="text" class="form-control" id="nom" name="nom" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="courriel">Courriel: <sup style="color:red;">*</sup></label>
-                    <input type="text" class="form-control" id="courriel" name="courriel" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="courriel">Courriel: <sup style="color:red;">*</sup></label>
+                        <input type="text" class="form-control" id="courriel" name="courriel" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="password">Mot de passe: <sup style="color:red;">*</sup></label>
-                    <input type="text" class="form-control" id="password" name="password" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="password">Mot de passe: <sup style="color:red;">*</sup></label>
+                        <input type="text" class="form-control" id="password" name="password" required>
+                    </div>
 
-                <button type="submit" class="btn btn-primary w-100">Créer un compte</button>
-            </form>
+                    <button type="submit" class="btn btn-primary w-100">Créer un compte</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
+<footer class="bg bg-dark text-white">
+    <p>FFF</p>
+</footer>
 </body>
 </html>

@@ -12,7 +12,7 @@
     <script src="script_modifier.js"></script>
     <script src="../verification_authentification.js"></script>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">Navbar</a>
@@ -49,92 +49,100 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-5">
-            <h1 id="titre" class="text-center"></h1>
-            <form method="POST" id="form_athlete_modifier">
-                <div class="mb-3">
-                    <label for="id" class="form-label">Id:</label>
-                    <input type="text" class="form-control" id="id" name="id" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="prenom" class="form-label">Prénom:</label>
-                    <input type="text" class="form-control" id="prenom" name="prenom" required>
-                </div>
+<div class="flex-grow-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-5">
+                <h1 id="titre" class="text-center"></h1>
+                <form method="POST" id="form_athlete_modifier">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Id:</label>
+                        <input type="text" class="form-control" id="id" name="id" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="prenom" class="form-label">Prénom:</label>
+                        <input type="text" class="form-control" id="prenom" name="prenom" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="nom" class="form-label">Nom de famille:</label>
-                    <input type="text" class="form-control" id="nom" name="nom" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom de famille:</label>
+                        <input type="text" class="form-control" id="nom" name="nom" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="alias" class="form-label">Alias:</label>
-                    <input type="text" class="form-control" id="alias" name="alias" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="alias" class="form-label">Alias:</label>
+                        <input type="text" class="form-control" id="alias" name="alias" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="origine" class="form-label">Origine:</label>
-                    <input type="text" class="form-control" id="origine" name="origine" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="origine" class="form-label">Origine:</label>
+                        <input type="text" class="form-control" id="origine" name="origine" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="taille" class="form-label">Taille:</label>
-                    <input type="text" class="form-control" id="taille" name="taille" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="taille" class="form-label">Taille:</label>
+                        <input type="text" class="form-control" id="taille" name="taille" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="poids" class="form-label">Poids:</label>
-                    <input type="text" class="form-control" id="poids" name="poids" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="poids" class="form-label">Poids:</label>
+                        <input type="text" class="form-control" id="poids" name="poids" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="sexe" class="form-label">Sexe:</label>
-                    <input type="text" class="form-control" id="sexe" name="sexe" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="sexe" class="form-label">Sexe:</label>
+                        <input type="text" class="form-control" id="sexe" name="sexe" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="actif">Actif: </label>
-                    <input type="checkbox" id="actif" name="actif">
-                </div>
+                    <div class="mb-3">
+                        <label for="actif">Actif: </label>
+                        <input type="checkbox" id="actif" name="actif">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="date_naissance" class="form-label">Date de naissance:</label>
-                    <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="date_naissance" class="form-label">Date de naissance:</label>
+                        <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
+                    </div>
 
 
-                <div class="mb-3">
-                    <label for="force" class="form-label">Points de force:</label>
-                    <input type="number" class="form-control" id="force" name="pts_force" min="1" max="10" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="force" class="form-label">Points de force:</label>
+                        <input type="number" class="form-control" id="force" name="pts_force" min="1" max="10" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="endurance" class="form-label">Points d'endurance:</label>
-                    <input type="number" class="form-control" id="endurance" name="pts_endurance" min="1" max="10"
-                           required>
-                </div>
+                    <div class="mb-3">
+                        <label for="endurance" class="form-label">Points d'endurance:</label>
+                        <input type="number" class="form-control" id="endurance" name="pts_endurance" min="1" max="10"
+                               required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="vitesse" class="form-label">Points de vitesse:</label>
-                    <input type="number" class="form-control" id="vitesse" name="pts_vitesse" min="1" max="10" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="vitesse" class="form-label">Points de vitesse:</label>
+                        <input type="number" class="form-control" id="vitesse" name="pts_vitesse" min="1" max="10"
+                               required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="agilete" class="form-label">Points de agileté:</label>
-                    <input type="number" class="form-control" id="agilete" name="pts_agilete" min="1" max="10" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="agilete" class="form-label">Points de agileté:</label>
+                        <input type="number" class="form-control" id="agilete" name="pts_agilete" min="1" max="10"
+                               required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="resilience" class="form-label">Points de resilience:</label>
-                    <input type="number" class="form-control" id="resilience" name="pts_resilience" min="1" max="10"
-                           required>
-                </div>
+                    <div class="mb-3">
+                        <label for="resilience" class="form-label">Points de resilience:</label>
+                        <input type="number" class="form-control" id="resilience" name="pts_resilience" min="1" max="10"
+                               required>
+                    </div>
 
-                <button class="btn btn-primary w-100" type="submit">Modifier</button>
-            </form>
+                    <button class="btn btn-primary w-100" type="submit">Modifier</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
+<footer class="bg bg-dark text-white">
+    <p>FFF</p>
+</footer>
 </body>
 </html>
