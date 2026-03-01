@@ -40,9 +40,20 @@ async function getInfoAthlete(){
         //Afficher les informations dans la pages
         const container = document.getElementById('information');
         container.innerHTML = `
-            <div class="bg-secondary w-50 text-white p-1 border rounded-1">
-                <h1>${athlete.prenom} "${athlete.alias}" ${athlete.nom} <span class="badge text-bg-dark">${actif}</span></h1>
-                <p class="fw-semibold">${athlete.victoires} - ${athlete.defaites} (Victoires - Défaites)</p>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+
+            <div class="bg-secondary text-white p-4 border rounded-3 text-center">
+                <h1>
+                    ${athlete.prenom} "${athlete.alias}" ${athlete.nom}
+                    <span class="badge text-bg-dark">${actif}</span>
+                </h1>
+
+                <p class="fw-semibold">
+                    ${athlete.victoires} - ${athlete.defaites} (Victoires - Défaites)
+                </p>
+
                 <p>Pays: ${athlete.origine}</p>
                 <p>Poids: ${athlete.poids} kg</p>
                 <p>Taille: ${athlete.taille} cm</p>
@@ -50,10 +61,17 @@ async function getInfoAthlete(){
                 <p>Âge: ${age} ans (${athlete.date_naissance})</p>
                 <p>Style: ${athlete.style_combat}</p>
             </div>
-                <h2>Stats</h2>
-                        <div class="w-25 border rounded-3 p-2 bg-black">
-                            <canvas id="chart_athlete"></canvas>
-                        </div>`;
+
+            <h2 class="text-center mt-4">Stats</h2>
+
+            <div class="border rounded-3 p-3 bg-black mt-3">
+                <canvas id="chart_athlete"></canvas>
+            </div>
+
+        </div>
+    </div>
+</div>
+`;
 
                     //Faire afficher un diagramme des données de l'athlète
                     const ctx = document.getElementById("chart_athlete");
