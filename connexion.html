@@ -52,8 +52,12 @@
 <h1 class="text-center">Connexion</h1>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-5 bg bg-secondary-subtle p-2 border rounded-2">
-            <form method="POST" id="form_connexion">
+        <div class="col-12 col-md-6 col-lg-5">
+            <!-- Alert pour les messages d'erreurs -->
+            <div id="afficher_alert" class="alert alert-danger d-none" role="alert">
+                <p id="alert_msg_erreur" class="text-center"></p>
+            </div>
+            <form method="POST" id="form_connexion" class="bg bg-secondary-subtle p-2 border rounded-2">
                 <div class="mb-3">
                     <label for="courriel">Courriel: <sup style="color:red;">*</sup></label>
                     <input type="text" class="form-control" id="courriel" name="courriel" required>

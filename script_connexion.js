@@ -10,39 +10,44 @@ async function connexion(event) {
     const password = document.getElementById("password").value;
 
     //Créer l'objet Connexion
-    const connexion = {username,password};
+    const connexion = {username, password};
 
     //Faire la requête POST vers le serveur
-    try{
-        const response = await fetch(`${API_URL}/login`,{
+    try {
+        const response = await fetch(`${API_URL}/login`, {
             method: "POST",
             body: JSON.stringify(connexion),
             headers: {"content-type": "application/json"}
         });
-        if(!response.ok){
-            throw new Error(`Erreur HTTP: ${response.status}`);
+        const afficher_alert = document.getElementById("afficher_alert");
+        if (!response.ok) {
+            afficher_alert.classList.remove("d-none");
+            document.getElementById("alert_msg_erreur").innerText = "Le nom d'utilisateur ou le mot de passe est incorrect."
+        } else {
+            //Faire disparaître le message d'erreur
+            afficher_alert.classList.add("d-none");
+
+            const data = await response.json();
+            console.log('Succès');
+
+            //Enregistrer les données dans le cookie et session
+            const token = data.token;
+            const user = data.username;
+            const role = data.roles[0];
+
+            // Enregistrer le username et role
+            sessionStorage.setItem("token", token);
+            sessionStorage.setItem("role", role);
+            sessionStorage.setItem("user", user);
+
+            window.location.href = "index.html";
         }
-        const data = await response.json();
-        console.log('Succès');
-
-        //Enregistrer les données dans le cookie et session
-        const token = data.token;
-        const user = data.username;
-        const role = data.roles[0];
-
-        // Enregistrer le username et role
-        sessionStorage.setItem("token", token);
-        sessionStorage.setItem("role", role);
-        sessionStorage.setItem("user", user);
-
-        window.location.href = "index.html";
-    }
-    catch(error){
-        console.log("Erreur lors de la connexion: ",error);
+    } catch (error) {
+        console.log("Erreur lors de la connexion: ", error);
     }
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("form_connexion");
-    form.addEventListener("submit",connexion);
+    form.addEventListener("submit", connexion);
 });
