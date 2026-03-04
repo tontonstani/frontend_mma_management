@@ -11,6 +11,32 @@
             crossorigin="anonymous"></script>
     <script src="script_classement_index.js"></script>
     <script src="../verification_authentification.js"></script>
+    <style>
+        .table tbody tr {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .table tbody tr:hover {
+            transform: scale(1.01);
+            background-color: #f8f9fa;
+        }
+
+        /* Top 3 styling */
+        .rank-1 {
+            background: linear-gradient(90deg, #ffd70033, transparent);
+            font-weight: bold;
+        }
+
+        .rank-2 {
+            background: linear-gradient(90deg, #c0c0c033, transparent);
+            font-weight: 600;
+        }
+
+        .rank-3 {
+            background: linear-gradient(90deg, #cd7f3233, transparent);
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 <!-- Barre de naviguation -->
@@ -50,25 +76,47 @@
     </div>
 </nav>
 
-<div class="flex-grow-1 mb-4">
-    <h1 class="text-center">Tous les classements</h1>
+<div class="flex-grow-1 py-5 bg-light">
 
     <div class="container">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Classement des Athlètes</h2>
+            <p class="text-muted">Performance globale des combattants</p>
+        </div>
+
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-5">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Victoires</th>
-                        <th scope="col">Défaites</th>
-                        <th scope="col">Différences</th>
-                    </tr>
-                    </thead>
-                    <tbody id="body"></tbody>
-                </table>
+            <div class="col-12 col-lg-9">
+
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-4">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-hover align-middle text-center mb-0">
+
+                                <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Athlète</th>
+                                    <th scope="col">Victoires</th>
+                                    <th scope="col">Défaites</th>
+                                    <th scope="col">Différence</th>
+                                </tr>
+                                </thead>
+
+                                <tbody id="body">
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </div>
 </div>
 

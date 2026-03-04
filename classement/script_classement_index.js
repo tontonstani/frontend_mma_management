@@ -45,10 +45,10 @@ async function getClassement() {
                 const tr = document.createElement("tr");
                 tr.innerHTML =
                     `
-             <td>${athlete.prenom} ${athlete.nom}</td>
-             <td>${athlete.victoires}</td>
-             <td>${athlete.defaites}</td>
-             <td>${athlete.differences}</td>
+             <td><strong>${athlete.prenom} ${athlete.nom}</strong></td>
+             <td><strong class="text-success">${athlete.victoires}</strong></td>
+             <td><strong class="text-danger">${athlete.defaites}</strong></td>
+             <td><strong>${athlete.differences}</strong></td>
             `;
                 tbody.appendChild(tr);
             });
