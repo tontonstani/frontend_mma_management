@@ -48,34 +48,58 @@
         </div>
     </div>
 </nav>
-<div class="flex-grow-1 mb-4">
-    <h1 class="text-center">Créer un compte</h1>
+
+<div class="flex-grow-1 py-5 bg-light">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-5 bg bg-secondary-subtle p-2 border rounded-2">
-                <form method="POST" id="form_inscription">
-                    <div class="mb-3">
-                        <label for="prenom">Prénom: <sup style="color:red;">*</sup></label>
-                        <input type="text" class="form-control" id="prenom" name="prenom" required>
+            <div class="col-12 col-md-6 col-lg-5">
+
+                <!-- Card du form -->
+                <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
+
+                    <h2 class="text-center fw-bold mb-4">Créer un compte</h2>
+
+                    <!-- Alert erreurs -->
+                    <div id="afficher_alert" class="alert alert-danger d-none" role="alert">
+                        <p id="alert_msg_erreur" class="text-center mb-0"></p>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="nom">Nom de famille: <sup style="color:red;">*</sup></label>
-                        <input type="text" class="form-control" id="nom" name="nom" required>
-                    </div>
+                    <form method="POST" id="form_inscription">
 
-                    <div class="mb-3">
-                        <label for="courriel">Courriel: <sup style="color:red;">*</sup></label>
-                        <input type="text" class="form-control" id="courriel" name="courriel" required>
-                    </div>
+                        <div class="mb-3 position-relative">
+                            <label for="prenom" class="form-label">Prénom <sup class="text-danger">*</sup></label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" required
+                                   placeholder="Votre prénom">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="password">Mot de passe: <sup style="color:red;">*</sup></label>
-                        <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
+                        <div class="mb-3 position-relative">
+                            <label for="nom" class="form-label">Nom de famille <sup class="text-danger">*</sup></label>
+                            <input type="text" class="form-control" id="nom" name="nom" required
+                                   placeholder="Votre nom">
 
-                    <button type="submit" class="btn btn-primary w-100">Créer un compte</button>
-                </form>
+                        </div>
+
+                        <div class="mb-3 position-relative">
+                            <label for="courriel" class="form-label">Courriel <sup class="text-danger">*</sup></label>
+                            <input type="email" class="form-control" id="courriel" name="courriel" required
+                                   placeholder="exemple@email.com">
+                        </div>
+
+                        <div class="mb-3 position-relative">
+                            <label for="password" class="form-label">Mot de passe <sup class="text-danger">*</sup></label>
+                            <input type="password" class="form-control" id="password" name="password" required
+                                   placeholder="••••••••">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 fw-bold">Créer un compte</button>
+
+                        <p class="mt-3 text-center text-muted small">
+                            Déjà un compte? <a href="connexion.html">Se connecter</a>
+                        </p>
+
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>
