@@ -50,54 +50,106 @@
     </div>
 </nav>
 
-<div class="flex-grow-1 mb-4">
+<div class="flex-grow-1 py-5 bg-light">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-5">
-                <h1 id="titre" class="text-center"></h1>
-                <form method="POST" id="form_match_modifier">
-                    <div class="mb-3">
-                        <label for="id">ID:</label>
-                        <input type="number" class="form-control" id="id" readonly>
-                    </div>
+            <div class="col-12 col-lg-8">
 
-                    <div class="mb-3">
-                        <label for="adversaire1">Adversaire #1:</label>
-                        <select name="adversaire1" id="adversaire1" class="form-control">
-                        </select>
-                    </div>
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-4 p-md-5">
 
-                    <div class="mb-3">
-                        <label for="adversaire2">Adversaire #2:</label>
-                        <select name="adversaire2" id="adversaire2" class="form-control">
-                        </select>
-                    </div>
+                        <h2 id="titre" class="text-center fw-bold mb-4"></h2>
 
-                    <div class="mb-3">
-                        <label for="gagnant">Gagnant:</label>
-                        <select name="gagnant" id="gagnant" class="form-control">
-                        </select>
-                    </div>
+                        <form method="POST" id="form_match_modifier">
 
-                    <div class="mb-3">
-                        <label for="dateTime">Date et l'heure:</label>
-                        <input type="datetime-local" class="form-control" id="dateTime" name="dateTime" required>
-                    </div>
+                            <!-- ID -->
+                            <div class="mb-4">
+                                <label for="id" class="form-label text-secondary">Identifiant du match</label>
+                                <input type="number"
+                                       class="form-control bg-light-subtle"
+                                       id="id"
+                                       readonly>
+                            </div>
 
-                    <div class="mb-3">
-                        <label for="stadium">Lieu:</label>
-                        <select class="form-select" id="stadium" name="stadium">
-                            <option value=null>...</option>
-                            <option value="Stade 1">Stade 1</option>
-                            <option value="Stade 2">Stade 2</option>
-                            <option value="Stade 3">Stade 3</option>
-                            <option value="Stade 4">Stade 4</option>
-                            <option value="Stade 5">Stade 5</option>
-                        </select>
+                            <!-- COMBATTANTS -->
+                            <h5 class="text-secondary mb-3">Combattants</h5>
 
-                        <button class="btn btn-primary w-100" type="submit">Modifier le match</button>
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="adversaire1" class="form-label">Adversaire #1</label>
+                                    <select name="adversaire1"
+                                            id="adversaire1"
+                                            class="form-select"
+                                            required>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="adversaire2" class="form-label">Adversaire #2</label>
+                                    <select name="adversaire2"
+                                            id="adversaire2"
+                                            class="form-select"
+                                            required>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="gagnant" class="form-label">Gagnant</label>
+                                    <select name="gagnant"
+                                            id="gagnant"
+                                            class="form-select"
+                                            required>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- INFORMATIONS EVENEMENT -->
+                            <h5 class="text-secondary mb-3">Informations de l'événement</h5>
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="dateTime" class="form-label">Date et heure</label>
+                                    <input type="datetime-local"
+                                           class="form-control"
+                                           id="dateTime"
+                                           name="dateTime"
+                                           required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="stadium" class="form-label">Lieu</label>
+                                    <select class="form-select"
+                                            id="stadium"
+                                            name="stadium"
+                                            required>
+                                        <option value="">Choisir un stade...</option>
+                                        <option value="Stade 1">Stade 1</option>
+                                        <option value="Stade 2">Stade 2</option>
+                                        <option value="Stade 3">Stade 3</option>
+                                        <option value="Stade 4">Stade 4</option>
+                                        <option value="Stade 5">Stade 5</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="mt-4">
+                                <button class="btn btn-warning w-100 py-2 rounded-3 fw-semibold"
+                                        type="submit">
+                                    Modifier le match
+                                </button>
+                            </div>
+
+                        </form>
+
                     </div>
-                </form>
+                </div>
+
             </div>
         </div>
     </div>

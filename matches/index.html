@@ -58,23 +58,73 @@
     </div>
     <a href="ajouter.html" id="link_match_ajouter" class="d-none">Ajouter un match</a>
 
-    <!-- Modal qui affiche les détails du match -->
+    <!-- Modal Détails Match -->
     <div class="modal fade" id="details_match" tabindex="-1" aria-labelledby="titremodal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-center" id="titremodal">Détails du match</h1>
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <!-- HEADER -->
+                <div class="modal-header bg-dark text-white border-0 rounded-top-4">
+                    <h4 class="modal-title fw-bold w-100 text-center" id="titremodal">
+                        Détails du match
+                    </h4>
+                    <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="container pb-2">
-                        <div class="row">
-                            <div class="col" id="athlete_1"></div>
-                            <div class="col" id="athlete_2"></div>
+
+                <!-- BODY -->
+                <div class="modal-body p-4">
+
+                    <!-- COMBATTANTS -->
+                    <div class="container text-center mb-4">
+                        <div class="row align-items-center">
+
+                            <div class="col-md-5">
+                                <div class="p-3 bg-light rounded-3 shadow-sm">
+                                    <h5 class="fw-semibold" id="athlete_1"></h5>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <h3 class="fw-bold text-danger">VS</h3>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="p-3 bg-light rounded-3 shadow-sm">
+                                    <h5 class="fw-semibold" id="athlete_2"></h5>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <p id="date_heure"></p>
-                    <p id="stade"></p>
+
+                    <hr>
+
+                    <!-- INFOS MATCH -->
+                    <div class="text-center mt-3">
+                        <p class="mb-2">
+                            <strong>Date :</strong>
+                            <span id="date_heure"></span>
+                        </p>
+
+                        <p class="mb-0">
+                            <strong>Lieu :</strong>
+                            <span id="stade"></span>
+                        </p>
+                    </div>
+
                 </div>
+
+                <!-- FOOTER -->
+                <div class="modal-footer border-0 justify-content-center pb-4">
+                    <button type="button"
+                            class="btn btn-dark px-4 rounded-3"
+                            data-bs-dismiss="modal">
+                        Fermer
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
