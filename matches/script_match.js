@@ -20,16 +20,24 @@ async function chargerMatches() {
             const row = document.createElement("div");
             row.classList.add("col");
             row.innerHTML = `
-                <h2 class="placeholder-glow">
-                    <span class="placeholder col-3"></span>
-                </h2>
-                <div class="placeholder-glow">
-                    <span class="placeholder col-1"></span><br>
-                    <span class="placeholder col-3"></span><br>
-                    <span class="placeholder col-2"></span>
-                </div>
-                <a class="btn disabled placeholder col-2"></a>
-                `;
+<div class="card shadow-sm border-0 rounded-4 p-3">
+    <div class="card-body">
+
+        <h5 class="card-title text-center placeholder-glow">
+            <span class="placeholder col-8"></span>
+        </h5>
+
+        <p class="text-center placeholder-glow">
+            <span class="placeholder col-4"></span>
+        </p>
+
+        <div class="text-center">
+            <span class="btn btn-secondary disabled placeholder col-6"></span>
+        </div>
+
+    </div>
+</div>
+`;
             container.append(row);
         })
 
@@ -37,18 +45,49 @@ async function chargerMatches() {
             container.innerHTML = "";
             matches.forEach(match => {
                 const row = document.createElement("div");
-                row.classList.add("col","border", "border-1", "rounded", "text-center", "p-1");
+                row.classList.add("col");
+
                 row.innerHTML = `
-                    <h2>${match.adversaire1} VS ${match.adversaire2}</h2>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#details_match" data-id="${match.id}">
-                        Détails du match
-                    </button>`
-                    if (sessionStorage.getItem('user') === "ROLE_ADMIN") {
-                        row.innerHTML +=
-                            `<a href="modifier.html?id=${match.id}">Modifier</a>
-                            <form class="form_suppression" method="POST" data-id="${match.id}">
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>`
+<div class="card shadow-sm border-0 rounded-4 h-100">
+
+    <div class="card-body text-center">
+
+        <h5 class="fw-bold mb-3">
+            ${match.adversaire1}
+            <span class="text-danger mx-2">VS</span>
+            ${match.adversaire2}
+        </h5>
+
+        <button type="button"
+            class="btn btn-outline-dark btn-sm mb-2"
+            data-bs-toggle="modal"
+            data-bs-target="#details_match"
+            data-id="${match.id}">
+            Voir les détails
+        </button>
+
+        <div class="admin-actions mt-2"></div>
+
+    </div>
+
+</div>
+`;
+                if (sessionStorage.getItem('user') === "ROLE_ADMIN") {
+
+                    const actions = row.querySelector(".admin-actions");
+
+                    actions.innerHTML = `
+        <a href="modifier.html?id=${match.id}"
+           class="btn btn-warning btn-sm me-2">
+           Modifier
+        </a>
+
+        <form class="form_suppression d-inline" data-id="${match.id}">
+            <button type="submit" class="btn btn-danger btn-sm">
+                Supprimer
+            </button>
+        </form>
+    `;
                 }
                 container.appendChild(row);
             });
