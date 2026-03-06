@@ -41,21 +41,59 @@ async function chargerAthletes() {
                     const row = document.createElement("div");
                     row.classList.add("col");
                     row.innerHTML = `
-            <div class="border border-1 rounded text-center p-1">
-            <h2>${athlete.prenom} ${athlete.nom}</h2>
-            <p class="fw-bolder">${athlete.origine}</p>
-            <p class="fw-bold"><span class="text-success">${athlete.victoires}</span> - <span class="text-danger">${athlete.defaites}</span></p>
-            <a class="btn btn-outline-dark" href="details.html?id=${athlete.id}">Profil</a>`;
+<div class="card shadow-sm h-100 border-0">
 
-                    //Afficher si l'utilisateur connecté a les permissions ADMIN
+    <div class="card-body text-center">
+
+        <h4 class="card-title fw-bold">
+            ${athlete.prenom} ${athlete.nom}
+        </h4>
+
+        <p class="text-muted mb-2">
+            ${athlete.origine}
+        </p>
+
+        <div class="mb-3">
+
+            <span class="badge bg-success fs-6">
+                ${athlete.victoires} Victoires
+            </span>
+
+            <span class="badge bg-danger fs-6">
+                ${athlete.defaites} Défaites
+            </span>
+
+        </div>
+
+        <a class="btn btn-outline-dark w-100 mb-2"
+           href="details.html?id=${athlete.id}">
+            Voir profil
+        </a>
+`;
+
                     if (sessionStorage.getItem("user") === "ROLE_ADMIN") {
-                        row.innerHTML +=
-                            `
-                    <a href="modifier.html?id=${athlete.id}">Modifier</a>
-                    <form class="form_suppression" method="POST" data-id="${athlete.id}">
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                    </form></div>`
+                        row.innerHTML += `
+    <div class="d-flex gap-2 justify-content-center">
+
+        <a class="btn btn-warning btn-sm"
+           href="modifier.html?id=${athlete.id}">
+           Modifier
+        </a>
+
+        <form class="form_suppression"
+              method="POST"
+              data-id="${athlete.id}">
+            <button type="submit"
+                    class="btn btn-danger btn-sm">
+                Supprimer
+            </button>
+        </form>
+
+    </div>
+    `;
                     }
+
+                    row.innerHTML += `</div></div>`;
                     container.append(row);
                 });
             },
