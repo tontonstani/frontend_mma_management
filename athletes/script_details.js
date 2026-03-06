@@ -37,51 +37,131 @@ async function getInfoAthlete() {
 
         //Liste des matches
         const row = document.createElement("ul");
-        row.classList.add("list-group");
+        row.classList.add("list-group", "list-group-flush");
+
         athlete.lst_matches.forEach(match => {
+
             const element = document.createElement("li");
-            element.classList.add("list-group-item", "text-center");
-            element.textContent = match;
+
+            element.classList.add(
+                "list-group-item",
+                "d-flex",
+                "justify-content-between",
+                "align-items-center"
+            );
+
+            element.innerHTML = `
+        <span>${match}</span>
+        <span class="badge bg-dark">Match</span>
+    `;
+
             row.appendChild(element);
-        })
+
+        });
         //Afficher les informations dans la pages
         const container = document.getElementById('information');
         container.innerHTML = `
-<div class="container mt-4">
-    <div class="row justify-content-center align-items-stretch g-4">
+<div class="container mt-5">
 
-        <div class="col-12 col-lg-5">
-            <div class="bg-secondary text-white p-4 border rounded-3 text-center h-100">
-                <h1>
-                    ${athlete.prenom} "${athlete.alias}" ${athlete.nom}
-                    <span class="badge text-bg-dark">${actif}</span>
-                </h1>
+    <div class="row g-4 justify-content-center">
 
-                <p class="fw-semibold">
-                    ${athlete.victoires} - ${athlete.defaites} (Victoires - Défaites)
-                </p>
+        <!-- Carte profil -->
+        <div class="col-lg-4">
+            <div class="card shadow-lg border-0 h-100">
 
-                <p>Pays: ${athlete.origine}</p>
-                <p>Poids: ${athlete.poids} kg</p>
-                <p>Taille: ${athlete.taille} cm</p>
-                <p>Sexe: ${athlete.sexe}</p>
-                <p>Âge: ${age} ans (${athlete.date_naissance})</p>
-                <p>Style: ${athlete.style_combat}</p>
+                <div class="card-header bg-dark text-white text-center">
+                    <h3 class="mb-0">
+                        ${athlete.prenom} "${athlete.alias}" ${athlete.nom}
+                    </h3>
+                    <span class="badge bg-${athlete.actif ? "success" : "secondary"} mt-2">
+                        ${actif}
+                    </span>
+                </div>
+
+                <div class="card-body text-center">
+
+                    <img src="../logo/LOGO_MMA.png"
+                         class="rounded-circle mb-3 shadow"
+                         width="120">
+
+                    <h4 class="fw-bold">
+                        ${athlete.victoires} - ${athlete.defaites}
+                    </h4>
+
+                    <p class="text-muted mb-3">
+                        Record (Victoires - Défaites)
+                    </p>
+
+                    <div class="row text-start">
+
+                        <div class="col-6">
+                            <p><strong>Pays</strong><br>${athlete.origine}</p>
+                        </div>
+
+                        <div class="col-6">
+                            <p><strong>Style</strong><br>${athlete.style_combat}</p>
+                        </div>
+
+                        <div class="col-6">
+                            <p><strong>Poids</strong><br>${athlete.poids} kg</p>
+                        </div>
+
+                        <div class="col-6">
+                            <p><strong>Taille</strong><br>${athlete.taille} cm</p>
+                        </div>
+
+                        <div class="col-6">
+                            <p><strong>Sexe</strong><br>${athlete.sexe}</p>
+                        </div>
+
+                        <div class="col-6">
+                            <p><strong>Âge</strong><br>${age} ans</p>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <div class="col-12 col-lg-5">
-            <div class="border rounded-3 p-3 bg-black h-100">
-                <canvas id="chart_athlete"></canvas>
+
+        <!-- Radar Chart -->
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0 h-100">
+
+                <div class="card-header bg-dark text-white text-center">
+                    <h4 class="mb-0">Statistiques de combat</h4>
+                </div>
+
+                <div class="card-body bg-black">
+                    <canvas id="chart_athlete"></canvas>
+                </div>
+
             </div>
         </div>
 
-        <div class="col-12">
-            <h2 class="text-center">Tous les matches</h2>
-            <div id="matchList"></div>
+
+        <!-- Liste des matchs -->
+        <div class="col-lg-10">
+
+            <div class="card shadow border-0">
+
+                <div class="card-header bg-dark text-white text-center">
+                    <h4 class="mb-0">Historique des matchs</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <div id="matchList"></div>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
+
 </div>
 `;
         document.getElementById("matchList").appendChild(row);
